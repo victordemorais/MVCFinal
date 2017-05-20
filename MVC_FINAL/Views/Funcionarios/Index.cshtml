@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MVC_Final.Models.Entidades.Funcionario>
+
+@{
+    ViewBag.Title = "Listar Funcionario";
+}
+
+<div class="corpo">
+    <div class="headerMenu">
+        <h1>Funcionarios cadastrados no banco de dados</h1>
+    </div>
+    <div class="botao">
+        <a href="@Url.Action("Create", "Funcionarios")">Cadastrar Funcionario</a>
+    </div>
+    <table>
+        <tr>
+            <td><b>@Html.DisplayNameFor(model => model.Nome)</b></td>
+            <td><b>@Html.DisplayNameFor(model => model.Email)</b></td>
+            <td><b>@Html.DisplayNameFor(model => model.CPF)</b></td>
+            <td><b>@Html.DisplayNameFor(model => model.Senha)</b></td>
+            <td><b>Opções</b></td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.CPF)</td>
+                <td>@Html.DisplayFor(modelItem => item.Senha)</td>
+                <td>
+                    <span style="width: 70px; text-align: center;">
+                        <a href="@Url.Action("Edit", "Funcionarios", new { id=item.Id })">
+                            <img src="~/Imgs/editar.png" />
+                        </a>
+                    </span> <span style="width: 70px; text-align: center;">
+                        <a href="@Url.Action("Delete", "Funcionarios", new { id=item.Id })">
+                            <img src="~/Imgs/deletar.png" />
+                        </a>
+                    </span>
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

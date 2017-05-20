@@ -1,0 +1,22 @@
+﻿@model MVC_Final.Models.Entidades.Funcionario
+
+@{
+    ViewBag.Title = "Deletar Funcionario";
+}
+
+<div class="corpo">
+    <div class="headerMenu">
+        <h1>Deletar Funcionario</h1>
+    </div>
+    <p>Você Realmente deseja deletar o aluno:<b>@Html.DisplayFor(model => model.Nome)</b></p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <input type="submit" value="Deletar" />
+            <span class="botao"> <a href="@Url.Action("Index", "Funcionarios")">Voltar a Lista</a></span>
+        </div>
+    }
+</div>

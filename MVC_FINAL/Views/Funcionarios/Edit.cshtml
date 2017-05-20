@@ -1,0 +1,41 @@
+﻿@model MVC_Final.Models.Entidades.Funcionario
+
+@{
+    ViewBag.Title = "Editar Funcionario";
+}
+
+<div class="corpo">
+    <div class="headerMenu">
+        <h1>Editar Funcionario</h1>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="formulariosCad">
+            <p>
+                <span>@Html.LabelFor(model => model.Nome) </span>
+                @Html.EditorFor(model => model.Nome)
+            </p>
+            <p>
+                <span>@Html.LabelFor(model => model.Email) </span>
+                @Html.EditorFor(model => model.Email)
+            </p>
+            <p>
+                <span>@Html.LabelFor(model => model.CPF) </span>
+                @Html.EditorFor(model => model.CPF)
+            </p>
+            <p>
+                <span>@Html.LabelFor(model => model.Senha) </span>
+                @Html.EditorFor(model => model.Senha)
+            </p>
+            
+        </div>
+        <div>
+            <input type="submit" value="Salvar" />
+            <span class="botao"> <a href="@Url.Action("Index", "Funcionarios ")">Voltar a Lista</a></span>
+        </div>
+    }
+</div>

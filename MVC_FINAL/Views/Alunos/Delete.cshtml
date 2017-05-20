@@ -1,0 +1,22 @@
+﻿@model MVC_Final.Models.Entidades.Aluno
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="corpo">
+    <div class="headerMenu">
+        <h1>Deletar Aluno</h1>
+    </div>
+    <p>Você Realmente deseja deletar o aluno:<b>@Html.DisplayFor(model => model.Nome)</b></p>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <input type="submit" value="Deletar" />
+            <span class="botao"> <a href="@Url.Action("Index", "Alunos")">Voltar a Lista</a></span>
+        </div>
+    }
+</div>
